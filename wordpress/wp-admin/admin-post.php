@@ -29,14 +29,30 @@ nocache_headers();
 /** This action is documented in wp-admin/admin.php */
 do_action( 'admin_init' );
 
-$action = ! empty( $_REQUEST['action'] ) ? sanitize_text_field( $_REQUEST['action'] ) : '';
+/**
+ * Handle the admin post request.
+ */
+function handle_admin_post_request() {
+	$action = ! empty( $_REQUEST['action'] ) ? sanitize_text_field( $_REQUEST['action'] ) : '';
 
-// Reject invalid parameters.
-if ( ! is_scalar( $action ) ) {
-	wp_die( '', 400 );
+	// Reject invalid parameters.
+	if ( ! is_scalar( $action ) ) {
+		wp_die( '', 400 );
+	}
+
+	if ( ! is_user_logged_in() ) {
+		handle_non_authenticated_request( $action );
+	} else {
+		handle_authenticated_request( $action );
+	}
 }
 
-if ( ! is_user_logged_in() ) {
+/**
+ * Handle non-authenticated admin post request.
+ *
+ * @param string $action The action parameter.
+ */
+function handle_non_authenticated_request( $action ) {
 	if ( empty( $action ) ) {
 		/**
 		 * Fires on a non-authenticated admin post request where no action is supplied.
@@ -60,7 +76,14 @@ if ( ! is_user_logged_in() ) {
 		 */
 		do_action( "admin_post_nopriv_{$action}" );
 	}
-} else {
+}
+
+/**
+ * Handle authenticated admin post request.
+ *
+ * @param string $action The action parameter.
+ */
+function handle_authenticated_request( $action ) {
 	if ( empty( $action ) ) {
 		/**
 		 * Fires on an authenticated admin post request where no action is supplied.
@@ -85,3 +108,6 @@ if ( ! is_user_logged_in() ) {
 		do_action( "admin_post_{$action}" );
 	}
 }
+
+// Call the main function to handle the admin post request.
+handle_admin_post_request();

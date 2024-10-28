@@ -209,3 +209,51 @@ if ( is_user_logged_in() ) {
 
 // Default status.
 wp_die( '0' );
+
+/**
+ * Register core Ajax calls for GET requests.
+ */
+function register_core_ajax_get_actions() {
+	global $core_actions_get;
+
+	foreach ( $core_actions_get as $action ) {
+		add_action( 'wp_ajax_' . $action, 'wp_ajax_' . str_replace( '-', '_', $action ), 1 );
+	}
+}
+
+/**
+ * Register core Ajax calls for POST requests.
+ */
+function register_core_ajax_post_actions() {
+	global $core_actions_post;
+
+	foreach ( $core_actions_post as $action ) {
+		add_action( 'wp_ajax_' . $action, 'wp_ajax_' . str_replace( '-', '_', $action ), 1 );
+	}
+}
+
+/**
+ * Handle authenticated Ajax actions for logged-in users.
+ *
+ * @param string $action The name of the Ajax action callback being fired.
+ */
+function handle_authenticated_ajax_action( $action ) {
+	if ( ! has_action( "wp_ajax_{$action}" ) ) {
+		wp_die( '0', 400 );
+	}
+
+	do_action( "wp_ajax_{$action}" );
+}
+
+/**
+ * Handle non-authenticated Ajax actions for logged-out users.
+ *
+ * @param string $action The name of the Ajax action callback being fired.
+ */
+function handle_non_authenticated_ajax_action( $action ) {
+	if ( ! has_action( "wp_ajax_nopriv_{$action}" ) ) {
+		wp_die( '0', 400 );
+	}
+
+	do_action( "wp_ajax_nopriv_{$action}" );
+}

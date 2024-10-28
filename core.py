@@ -1,3 +1,5 @@
+import cProfile
+
 class Entity:
     # Represents a generic entity with an ID and a name
     def __init__(self, id, name):
@@ -17,9 +19,13 @@ class ToDoItem(Entity):
     def __str__(self):
         return f"{self.id}: {self.name} - Completed: {self.completed}"
 
+def profile_mark_as_completed():
+    todo = ToDoItem(1, "Learn Clean Architecture")
+    todo.mark_as_completed()
+
 # Example usage
 if __name__ == "__main__":
     todo = ToDoItem(1, "Learn Clean Architecture")
     print(todo)
-    todo.mark_as_completed()
+    cProfile.run('profile_mark_as_completed()')
     print(todo)

@@ -41,6 +41,22 @@ A Docker-based local development environment for WordPress projects.
   docker exec -it <mysql-container-name> mysql -u root -p
   ```
 
+## Profiling Tools
+
+### Using Profiling Tools
+
+To identify performance bottlenecks, you can use the profiling tools integrated into this project.
+
+### Running the Profiling Service
+
+1. **Start the profiling service**:
+   ```bash
+   docker-compose up -d profiler
+   ```
+
+2. **Access the profiling results**:
+   The profiling results will be saved in the `profiler` directory as `profile.svg`.
+
 ## Contributing
 
 We welcome contributions! Please follow these guidelines:

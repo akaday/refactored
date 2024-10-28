@@ -23,5 +23,11 @@ services:
     volumes:
       - db_data:/var/lib/mysql
 
+  profiler:
+    image: py-spy
+    volumes:
+      - ./profiler:/profiler
+    command: ["--output", "/profiler/profile.svg", "--pid", "1"]
+
 volumes:
   db_data:

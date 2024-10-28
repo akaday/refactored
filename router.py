@@ -1,3 +1,5 @@
+import cProfile
+
 # Define core routing logic
 class Router:
     # Router class handles the routing logic for the application
@@ -15,6 +17,11 @@ class Router:
             return handler()
         return "404 Not Found"
 
+def profile_handle_request():
+    router = Router()
+    router.add_route("/", home_view)
+    router.handle_request("/")
+
 # Create a simple view
 def home_view():
     return "Welcome to the Home Page"
@@ -24,5 +31,7 @@ router = Router()
 router.add_route("/", home_view)
 
 # Handle a sample request
-response = router.handle_request("/")
-print(response)  # Output: Welcome to the Home Page
+if __name__ == "__main__":
+    cProfile.run('profile_handle_request()')
+    response = router.handle_request("/")
+    print(response)  # Output: Welcome to the Home Page

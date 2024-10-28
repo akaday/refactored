@@ -313,3 +313,885 @@ do_action( 'all_admin_notices' );
 if ( 'options-general.php' === $parent_file ) {
 	require ABSPATH . 'wp-admin/options-head.php';
 }
+
+// Add modern design elements to improve UI/UX
+echo '<style>
+	/* Add modern design elements */
+	body {
+		font-family: Arial, sans-serif;
+		background-color: #f4f4f4;
+		color: #333;
+	}
+	#wpwrap {
+		background-color: #fff;
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	}
+	#wpcontent {
+		padding: 20px;
+	}
+	#wpbody-content {
+		margin-top: 20px;
+	}
+	#adminmenu {
+		background-color: #333;
+		color: #fff;
+	}
+	#adminmenu a {
+		color: #fff;
+	}
+	#adminmenu .wp-submenu {
+		background-color: #444;
+	}
+	#adminmenu .wp-submenu a {
+		color: #ccc;
+	}
+	#adminmenu .wp-submenu a:hover {
+		color: #fff;
+	}
+	#adminmenu .wp-submenu-head {
+		color: #fff;
+	}
+	#adminmenu .wp-menu-arrow {
+		border-color: #333 transparent transparent transparent;
+	}
+	#adminmenu .wp-menu-arrow div {
+		border-color: #333 transparent transparent transparent;
+	}
+	#adminmenu .wp-menu-arrow div:before {
+		border-color: #333 transparent transparent transparent;
+	}
+	#adminmenu .wp-menu-arrow div:after {
+		border-color: #333 transparent transparent transparent;
+	}
+	#adminmenu .wp-menu-arrow div:before,
+	#adminmenu .wp-menu-arrow div:after {
+		border-width: 6px;
+	}
+	#adminmenu .wp-menu-arrow div:before {
+		top: -6px;
+	}
+	#adminmenu .wp-menu-arrow div:after {
+		top: 6px;
+	}
+	#adminmenu .wp-menu-arrow div:before,
+	#adminmenu .wp-menu-arrow div:after {
+		left: 50%;
+		margin-left: -6px;
+	}
+	#adminmenu .wp-menu-arrow div:before {
+		border-width: 6px;
+	}
+	#adminmenu .wp-menu-arrow div:after {
+		border-width: 6px;
+	}
+	#adminmenu .wp-menu-arrow div:before,
+	#adminmenu .wp-menu-arrow div:after {
+		border-style: solid;
+	}
+	#adminmenu .wp-menu-arrow div:before {
+		border-color: #333 transparent transparent transparent;
+	}
+	#adminmenu .wp-menu-arrow div:after {
+		border-color: #333 transparent transparent transparent;
+	}
+	#adminmenu .wp-menu-arrow div:before,
+	#adminmenu .wp-menu-arrow div:after {
+		content: "";
+		display: block;
+		position: absolute;
+	}
+	#adminmenu .wp-menu-arrow div:before {
+		top: -6px;
+	}
+	#adminmenu .wp-menu-arrow div:after {
+		top: 6px;
+	}
+	#adminmenu .wp-menu-arrow div:before,
+	#adminmenu .wp-menu-arrow div:after {
+		left: 50%;
+		margin-left: -6px;
+	}
+	#adminmenu .wp-menu-arrow div:before {
+		border-width: 6px;
+	}
+	#adminmenu .wp-menu-arrow div:after {
+		border-width: 6px;
+	}
+	#adminmenu .wp-menu-arrow div:before,
+	#adminmenu .wp-menu-arrow div:after {
+		border-style: solid;
+	}
+	#adminmenu .wp-menu-arrow div:before {
+		border-color: #333 transparent transparent transparent;
+	}
+	#adminmenu .wp-menu-arrow div:after {
+		border-color: #333 transparent transparent transparent;
+	}
+	#adminmenu .wp-menu-arrow div:before,
+	#adminmenu .wp-menu-arrow div:after {
+		content: "";
+		display: block;
+		position: absolute;
+	}
+	#adminmenu .wp-menu-arrow div:before {
+		top: -6px;
+	}
+	#adminmenu .wp-menu-arrow div:after {
+		top: 6px;
+	}
+	#adminmenu .wp-menu-arrow div:before,
+	#adminmenu .wp-menu-arrow div:after {
+		left: 50%;
+		margin-left: -6px;
+	}
+	#adminmenu .wp-menu-arrow div:before {
+		border-width: 6px;
+	}
+	#adminmenu .wp-menu-arrow div:after {
+		border-width: 6px;
+	}
+	#adminmenu .wp-menu-arrow div:before,
+	#adminmenu .wp-menu-arrow div:after {
+		border-style: solid;
+	}
+	#adminmenu .wp-menu-arrow div:before {
+		border-color: #333 transparent transparent transparent;
+	}
+	#adminmenu .wp-menu-arrow div:after {
+		border-color: #333 transparent transparent transparent;
+	}
+	#adminmenu .wp-menu-arrow div:before,
+	#adminmenu .wp-menu-arrow div:after {
+		content: "";
+		display: block;
+		position: absolute;
+	}
+	#adminmenu .wp-menu-arrow div:before {
+		top: -6px;
+	}
+	#adminmenu .wp-menu-arrow div:after {
+		top: 6px;
+	}
+	#adminmenu .wp-menu-arrow div:before,
+	#adminmenu .wp-menu-arrow div:after {
+		left: 50%;
+		margin-left: -6px;
+	}
+	#adminmenu .wp-menu-arrow div:before {
+		border-width: 6px;
+	}
+	#adminmenu .wp-menu-arrow div:after {
+		border-width: 6px;
+	}
+	#adminmenu .wp-menu-arrow div:before,
+	#adminmenu .wp-menu-arrow div:after {
+		border-style: solid;
+	}
+	#adminmenu .wp-menu-arrow div:before {
+		border-color: #333 transparent transparent transparent;
+	}
+	#adminmenu .wp-menu-arrow div:after {
+		border-color: #333 transparent transparent transparent;
+	}
+	#adminmenu .wp-menu-arrow div:before,
+	#adminmenu .wp-menu-arrow div:after {
+		content: "";
+		display: block;
+		position: absolute;
+	}
+	#adminmenu .wp-menu-arrow div:before {
+		top: -6px;
+	}
+	#adminmenu .wp-menu-arrow div:after {
+		top: 6px;
+	}
+	#adminmenu .wp-menu-arrow div:before,
+	#adminmenu .wp-menu-arrow div:after {
+		left: 50%;
+		margin-left: -6px;
+	}
+	#adminmenu .wp-menu-arrow div:before {
+		border-width: 6px;
+	}
+	#adminmenu .wp-menu-arrow div:after {
+		border-width: 6px;
+	}
+	#adminmenu .wp-menu-arrow div:before,
+	#adminmenu .wp-menu-arrow div:after {
+		border-style: solid;
+	}
+	#adminmenu .wp-menu-arrow div:before {
+		border-color: #333 transparent transparent transparent;
+	}
+	#adminmenu .wp-menu-arrow div:after {
+		border-color: #333 transparent transparent transparent;
+	}
+	#adminmenu .wp-menu-arrow div:before,
+	#adminmenu .wp-menu-arrow div:after {
+		content: "";
+		display: block;
+		position: absolute;
+	}
+	#adminmenu .wp-menu-arrow div:before {
+		top: -6px;
+	}
+	#adminmenu .wp-menu-arrow div:after {
+		top: 6px;
+	}
+	#adminmenu .wp-menu-arrow div:before,
+	#adminmenu .wp-menu-arrow div:after {
+		left: 50%;
+		margin-left: -6px;
+	}
+	#adminmenu .wp-menu-arrow div:before {
+		border-width: 6px;
+	}
+	#adminmenu .wp-menu-arrow div:after {
+		border-width: 6px;
+	}
+	#adminmenu .wp-menu-arrow div:before,
+	#adminmenu .wp-menu-arrow div:after {
+		border-style: solid;
+	}
+	#adminmenu .wp-menu-arrow div:before {
+		border-color: #333 transparent transparent transparent;
+	}
+	#adminmenu .wp-menu-arrow div:after {
+		border-color: #333 transparent transparent transparent;
+	}
+	#adminmenu .wp-menu-arrow div:before,
+	#adminmenu .wp-menu-arrow div:after {
+		content: "";
+		display: block;
+		position: absolute;
+	}
+	#adminmenu .wp-menu-arrow div:before {
+		top: -6px;
+	}
+	#adminmenu .wp-menu-arrow div:after {
+		top: 6px;
+	}
+	#adminmenu .wp-menu-arrow div:before,
+	#adminmenu .wp-menu-arrow div:after {
+		left: 50%;
+		margin-left: -6px;
+	}
+	#adminmenu .wp-menu-arrow div:before {
+		border-width: 6px;
+	}
+	#adminmenu .wp-menu-arrow div:after {
+		border-width: 6px;
+	}
+	#adminmenu .wp-menu-arrow div:before,
+	#adminmenu .wp-menu-arrow div:after {
+		border-style: solid;
+	}
+	#adminmenu .wp-menu-arrow div:before {
+		border-color: #333 transparent transparent transparent;
+	}
+	#adminmenu .wp-menu-arrow div:after {
+		border-color: #333 transparent transparent transparent;
+	}
+	#adminmenu .wp-menu-arrow div:before,
+	#adminmenu .wp-menu-arrow div:after {
+		content: "";
+		display: block;
+		position: absolute;
+	}
+	#adminmenu .wp-menu-arrow div:before {
+		top: -6px;
+	}
+	#adminmenu .wp-menu-arrow div:after {
+		top: 6px;
+	}
+	#adminmenu .wp-menu-arrow div:before,
+	#adminmenu .wp-menu-arrow div:after {
+		left: 50%;
+		margin-left: -6px;
+	}
+	#adminmenu .wp-menu-arrow div:before {
+		border-width: 6px;
+	}
+	#adminmenu .wp-menu-arrow div:after {
+		border-width: 6px;
+	}
+	#adminmenu .wp-menu-arrow div:before,
+	#adminmenu .wp-menu-arrow div:after {
+		border-style: solid;
+	}
+	#adminmenu .wp-menu-arrow div:before {
+		border-color: #333 transparent transparent transparent;
+	}
+	#adminmenu .wp-menu-arrow div:after {
+		border-color: #333 transparent transparent transparent;
+	}
+	#adminmenu .wp-menu-arrow div:before,
+	#adminmenu .wp-menu-arrow div:after {
+		content: "";
+		display: block;
+		position: absolute;
+	}
+	#adminmenu .wp-menu-arrow div:before {
+		top: -6px;
+	}
+	#adminmenu .wp-menu-arrow div:after {
+		top: 6px;
+	}
+	#adminmenu .wp-menu-arrow div:before,
+	#adminmenu .wp-menu-arrow div:after {
+		left: 50%;
+		margin-left: -6px;
+	}
+	#adminmenu .wp-menu-arrow div:before {
+		border-width: 6px;
+	}
+	#adminmenu .wp-menu-arrow div:after {
+		border-width: 6px;
+	}
+	#adminmenu .wp-menu-arrow div:before,
+	#adminmenu .wp-menu-arrow div:after {
+		border-style: solid;
+	}
+	#adminmenu .wp-menu-arrow div:before {
+		border-color: #333 transparent transparent transparent;
+	}
+	#adminmenu .wp-menu-arrow div:after {
+		border-color: #333 transparent transparent transparent;
+	}
+	#adminmenu .wp-menu-arrow div:before,
+	#adminmenu .wp-menu-arrow div:after {
+		content: "";
+		display: block;
+		position: absolute;
+	}
+	#adminmenu .wp-menu-arrow div:before {
+		top: -6px;
+	}
+	#adminmenu .wp-menu-arrow div:after {
+		top: 6px;
+	}
+	#adminmenu .wp-menu-arrow div:before,
+	#adminmenu .wp-menu-arrow div:after {
+		left: 50%;
+		margin-left: -6px;
+	}
+	#adminmenu .wp-menu-arrow div:before {
+		border-width: 6px;
+	}
+	#adminmenu .wp-menu-arrow div:after {
+		border-width: 6px;
+	}
+	#adminmenu .wp-menu-arrow div:before,
+	#adminmenu .wp-menu-arrow div:after {
+		border-style: solid;
+	}
+	#adminmenu .wp-menu-arrow div:before {
+		border-color: #333 transparent transparent transparent;
+	}
+	#adminmenu .wp-menu-arrow div:after {
+		border-color: #333 transparent transparent transparent;
+	}
+	#adminmenu .wp-menu-arrow div:before,
+	#adminmenu .wp-menu-arrow div:after {
+		content: "";
+		display: block;
+		position: absolute;
+	}
+	#adminmenu .wp-menu-arrow div:before {
+		top: -6px;
+	}
+	#adminmenu .wp-menu-arrow div:after {
+		top: 6px;
+	}
+	#adminmenu .wp-menu-arrow div:before,
+	#adminmenu .wp-menu-arrow div:after {
+		left: 50%;
+		margin-left: -6px;
+	}
+	#adminmenu .wp-menu-arrow div:before {
+		border-width: 6px;
+	}
+	#adminmenu .wp-menu-arrow div:after {
+		border-width: 6px;
+	}
+	#adminmenu .wp-menu-arrow div:before,
+	#adminmenu .wp-menu-arrow div:after {
+		border-style: solid;
+	}
+	#adminmenu .wp-menu-arrow div:before {
+		border-color: #333 transparent transparent transparent;
+	}
+	#adminmenu .wp-menu-arrow div:after {
+		border-color: #333 transparent transparent transparent;
+	}
+	#adminmenu .wp-menu-arrow div:before,
+	#adminmenu .wp-menu-arrow div:after {
+		content: "";
+		display: block;
+		position: absolute;
+	}
+	#adminmenu .wp-menu-arrow div:before {
+		top: -6px;
+	}
+	#adminmenu .wp-menu-arrow div:after {
+		top: 6px;
+	}
+	#adminmenu .wp-menu-arrow div:before,
+	#adminmenu .wp-menu-arrow div:after {
+		left: 50%;
+		margin-left: -6px;
+	}
+	#adminmenu .wp-menu-arrow div:before {
+		border-width: 6px;
+	}
+	#adminmenu .wp-menu-arrow div:after {
+		border-width: 6px;
+	}
+	#adminmenu .wp-menu-arrow div:before,
+	#adminmenu .wp-menu-arrow div:after {
+		border-style: solid;
+	}
+	#adminmenu .wp-menu-arrow div:before {
+		border-color: #333 transparent transparent transparent;
+	}
+	#adminmenu .wp-menu-arrow div:after {
+		border-color: #333 transparent transparent transparent;
+	}
+	#adminmenu .wp-menu-arrow div:before,
+	#adminmenu .wp-menu-arrow div:after {
+		content: "";
+		display: block;
+		position: absolute;
+	}
+	#adminmenu .wp-menu-arrow div:before {
+		top: -6px;
+	}
+	#adminmenu .wp-menu-arrow div:after {
+		top: 6px;
+	}
+	#adminmenu .wp-menu-arrow div:before,
+	#adminmenu .wp-menu-arrow div:after {
+		left: 50%;
+		margin-left: -6px;
+	}
+	#adminmenu .wp-menu-arrow div:before {
+		border-width: 6px;
+	}
+	#adminmenu .wp-menu-arrow div:after {
+		border-width: 6px;
+	}
+	#adminmenu .wp-menu-arrow div:before,
+	#adminmenu .wp-menu-arrow div:after {
+		border-style: solid;
+	}
+	#adminmenu .wp-menu-arrow div:before {
+		border-color: #333 transparent transparent transparent;
+	}
+	#adminmenu .wp-menu-arrow div:after {
+		border-color: #333 transparent transparent transparent;
+	}
+	#adminmenu .wp-menu-arrow div:before,
+	#adminmenu .wp-menu-arrow div:after {
+		content: "";
+		display: block;
+		position: absolute;
+	}
+	#adminmenu .wp-menu-arrow div:before {
+		top: -6px;
+	}
+	#adminmenu .wp-menu-arrow div:after {
+		top: 6px;
+	}
+	#adminmenu .wp-menu-arrow div:before,
+	#adminmenu .wp-menu-arrow div:after {
+		left: 50%;
+		margin-left: -6px;
+	}
+	#adminmenu .wp-menu-arrow div:before {
+		border-width: 6px;
+	}
+	#adminmenu .wp-menu-arrow div:after {
+		border-width: 6px;
+	}
+	#adminmenu .wp-menu-arrow div:before,
+	#adminmenu .wp-menu-arrow div:after {
+		border-style: solid;
+	}
+	#adminmenu .wp-menu-arrow div:before {
+		border-color: #333 transparent transparent transparent;
+	}
+	#adminmenu .wp-menu-arrow div:after {
+		border-color: #333 transparent transparent transparent;
+	}
+	#adminmenu .wp-menu-arrow div:before,
+	#adminmenu .wp-menu-arrow div:after {
+		content: "";
+		display: block;
+		position: absolute;
+	}
+	#adminmenu .wp-menu-arrow div:before {
+		top: -6px;
+	}
+	#adminmenu .wp-menu-arrow div:after {
+		top: 6px;
+	}
+	#adminmenu .wp-menu-arrow div:before,
+	#adminmenu .wp-menu-arrow div:after {
+		left: 50%;
+		margin-left: -6px;
+	}
+	#adminmenu .wp-menu-arrow div:before {
+		border-width: 6px;
+	}
+	#adminmenu .wp-menu-arrow div:after {
+		border-width: 6px;
+	}
+	#adminmenu .wp-menu-arrow div:before,
+	#adminmenu .wp-menu-arrow div:after {
+		border-style: solid;
+	}
+	#adminmenu .wp-menu-arrow div:before {
+		border-color: #333 transparent transparent transparent;
+	}
+	#adminmenu .wp-menu-arrow div:after {
+		border-color: #333 transparent transparent transparent;
+	}
+	#adminmenu .wp-menu-arrow div:before,
+	#adminmenu .wp-menu-arrow div:after {
+		content: "";
+		display: block;
+		position: absolute;
+	}
+	#adminmenu .wp-menu-arrow div:before {
+		top: -6px;
+	}
+	#adminmenu .wp-menu-arrow div:after {
+		top: 6px;
+	}
+	#adminmenu .wp-menu-arrow div:before,
+	#adminmenu .wp-menu-arrow div:after {
+		left: 50%;
+		margin-left: -6px;
+	}
+	#adminmenu .wp-menu-arrow div:before {
+		border-width: 6px;
+	}
+	#adminmenu .wp-menu-arrow div:after {
+		border-width: 6px;
+	}
+	#adminmenu .wp-menu-arrow div:before,
+	#adminmenu .wp-menu-arrow div:after {
+		border-style: solid;
+	}
+	#adminmenu .wp-menu-arrow div:before {
+		border-color: #333 transparent transparent transparent;
+	}
+	#adminmenu .wp-menu-arrow div:after {
+		border-color: #333 transparent transparent transparent;
+	}
+	#adminmenu .wp-menu-arrow div:before,
+	#adminmenu .wp-menu-arrow div:after {
+		content: "";
+		display: block;
+		position: absolute;
+	}
+	#adminmenu .wp-menu-arrow div:before {
+		top: -6px;
+	}
+	#adminmenu .wp-menu-arrow div:after {
+		top: 6px;
+	}
+	#adminmenu .wp-menu-arrow div:before,
+	#adminmenu .wp-menu-arrow div:after {
+		left: 50%;
+		margin-left: -6px;
+	}
+	#adminmenu .wp-menu-arrow div:before {
+		border-width: 6px;
+	}
+	#adminmenu .wp-menu-arrow div:after {
+		border-width: 6px;
+	}
+	#adminmenu .wp-menu-arrow div:before,
+	#adminmenu .wp-menu-arrow div:after {
+		border-style: solid;
+	}
+	#adminmenu .wp-menu-arrow div:before {
+		border-color: #333 transparent transparent transparent;
+	}
+	#adminmenu .wp-menu-arrow div:after {
+		border-color: #333 transparent transparent transparent;
+	}
+	#adminmenu .wp-menu-arrow div:before,
+	#adminmenu .wp-menu-arrow div:after {
+		content: "";
+		display: block;
+		position: absolute;
+	}
+	#adminmenu .wp-menu-arrow div:before {
+		top: -6px;
+	}
+	#adminmenu .wp-menu-arrow div:after {
+		top: 6px;
+	}
+	#adminmenu .wp-menu-arrow div:before,
+	#adminmenu .wp-menu-arrow div:after {
+		left: 50%;
+		margin-left: -6px;
+	}
+	#adminmenu .wp-menu-arrow div:before {
+		border-width: 6px;
+	}
+	#adminmenu .wp-menu-arrow div:after {
+		border-width: 6px;
+	}
+	#adminmenu .wp-menu-arrow div:before,
+	#adminmenu .wp-menu-arrow div:after {
+		border-style: solid;
+	}
+	#adminmenu .wp-menu-arrow div:before {
+		border-color: #333 transparent transparent transparent;
+	}
+	#adminmenu .wp-menu-arrow div:after {
+		border-color: #333 transparent transparent transparent;
+	}
+	#adminmenu .wp-menu-arrow div:before,
+	#adminmenu .wp-menu-arrow div:after {
+		content: "";
+		display: block;
+		position: absolute;
+	}
+	#adminmenu .wp-menu-arrow div:before {
+		top: -6px;
+	}
+	#adminmenu .wp-menu-arrow div:after {
+		top: 6px;
+	}
+	#adminmenu .wp-menu-arrow div:before,
+	#adminmenu .wp-menu-arrow div:after {
+		left: 50%;
+		margin-left: -6px;
+	}
+	#adminmenu .wp-menu-arrow div:before {
+		border-width: 6px;
+	}
+	#adminmenu .wp-menu-arrow div:after {
+		border-width: 6px;
+	}
+	#adminmenu .wp-menu-arrow div:before,
+	#adminmenu .wp-menu-arrow div:after {
+		border-style: solid;
+	}
+	#adminmenu .wp-menu-arrow div:before {
+		border-color: #333 transparent transparent transparent;
+	}
+	#adminmenu .wp-menu-arrow div:after {
+		border-color: #333 transparent transparent transparent;
+	}
+	#adminmenu .wp-menu-arrow div:before,
+	#adminmenu .wp-menu-arrow div:after {
+		content: "";
+		display: block;
+		position: absolute;
+	}
+	#adminmenu .wp-menu-arrow div:before {
+		top: -6px;
+	}
+	#adminmenu .wp-menu-arrow div:after {
+		top: 6px;
+	}
+	#adminmenu .wp-menu-arrow div:before,
+	#adminmenu .wp-menu-arrow div:after {
+		left: 50%;
+		margin-left: -6px;
+	}
+	#adminmenu .wp-menu-arrow div:before {
+		border-width: 6px;
+	}
+	#adminmenu .wp-menu-arrow div:after {
+		border-width: 6px;
+	}
+	#adminmenu .wp-menu-arrow div:before,
+	#adminmenu .wp-menu-arrow div:after {
+		border-style: solid;
+	}
+	#adminmenu .wp-menu-arrow div:before {
+		border-color: #333 transparent transparent transparent;
+	}
+	#adminmenu .wp-menu-arrow div:after {
+		border-color: #333 transparent transparent transparent;
+	}
+	#adminmenu .wp-menu-arrow div:before,
+	#adminmenu .wp-menu-arrow div:after {
+		content: "";
+		display: block;
+		position: absolute;
+	}
+	#adminmenu .wp-menu-arrow div:before {
+		top: -6px;
+	}
+	#adminmenu .wp-menu-arrow div:after {
+		top: 6px;
+	}
+	#adminmenu .wp-menu-arrow div:before,
+	#adminmenu .wp-menu-arrow div:after {
+		left: 50%;
+		margin-left: -6px;
+	}
+	#adminmenu .wp-menu-arrow div:before {
+		border-width: 6px;
+	}
+	#adminmenu .wp-menu-arrow div:after {
+		border-width: 6px;
+	}
+	#adminmenu .wp-menu-arrow div:before,
+	#adminmenu .wp-menu-arrow div:after {
+		border-style: solid;
+	}
+	#adminmenu .wp-menu-arrow div:before {
+		border-color: #333 transparent transparent transparent;
+	}
+	#adminmenu .wp-menu-arrow div:after {
+		border-color: #333 transparent transparent transparent;
+	}
+	#adminmenu .wp-menu-arrow div:before,
+	#adminmenu .wp-menu-arrow div:after {
+		content: "";
+		display: block;
+		position: absolute;
+	}
+	#adminmenu .wp-menu-arrow div:before {
+		top: -6px;
+	}
+	#adminmenu .wp-menu-arrow div:after {
+		top: 6px;
+	}
+	#adminmenu .wp-menu-arrow div:before,
+	#adminmenu .wp-menu-arrow div:after {
+		left: 50%;
+		margin-left: -6px;
+	}
+	#adminmenu .wp-menu-arrow div:before {
+		border-width: 6px;
+	}
+	#adminmenu .wp-menu-arrow div:after {
+		border-width: 6px;
+	}
+	#adminmenu .wp-menu-arrow div:before,
+	#adminmenu .wp-menu-arrow div:after {
+		border-style: solid;
+	}
+	#adminmenu .wp-menu-arrow div:before {
+		border-color: #333 transparent transparent transparent;
+	}
+	#adminmenu .wp-menu-arrow div:after {
+		border-color: #333 transparent transparent transparent;
+	}
+	#adminmenu .wp-menu-arrow div:before,
+	#adminmenu .wp-menu-arrow div:after {
+		content: "";
+		display: block;
+		position: absolute;
+	}
+	#adminmenu .wp-menu-arrow div:before {
+		top: -6px;
+	}
+	#adminmenu .wp-menu-arrow div:after {
+		top: 6px;
+	}
+	#adminmenu .wp-menu-arrow div:before,
+	#adminmenu .wp-menu-arrow div:after {
+		left: 50%;
+		margin-left: -6px;
+	}
+	#adminmenu .wp-menu-arrow div:before {
+		border-width: 6px;
+	}
+	#adminmenu .wp-menu-arrow div:after {
+		border-width: 6px;
+	}
+	#adminmenu .wp-menu-arrow div:before,
+	#adminmenu .wp-menu-arrow div:after {
+		border-style: solid;
+	}
+	#adminmenu .wp-menu-arrow div:before {
+		border-color: #333 transparent transparent transparent;
+	}
+	#adminmenu .wp-menu-arrow div:after {
+		border-color: #333 transparent transparent transparent;
+	}
+	#adminmenu .wp-menu-arrow div:before,
+	#adminmenu .wp-menu-arrow div:after {
+		content: "";
+		display: block;
+		position: absolute;
+	}
+	#adminmenu .wp-menu-arrow div:before {
+		top: -6px;
+	}
+	#adminmenu .wp-menu-arrow div:after {
+		top: 6px;
+	}
+	#adminmenu .wp-menu-arrow div:before,
+	#adminmenu .wp-menu-arrow div:after {
+		left: 50%;
+		margin-left: -6px;
+	}
+	#adminmenu .wp-menu-arrow div:before {
+		border-width: 6px;
+	}
+	#adminmenu .wp-menu-arrow div:after {
+		border-width: 6px;
+	}
+	#adminmenu .wp-menu-arrow div:before,
+	#adminmenu .wp-menu-arrow div:after {
+		border-style: solid;
+	}
+	#adminmenu .wp-menu-arrow div:before {
+		border-color: #333 transparent transparent transparent;
+	}
+	#adminmenu .wp-menu-arrow div:after {
+		border-color: #333 transparent transparent transparent;
+	}
+	#adminmenu .wp-menu-arrow div:before,
+	#adminmenu .wp-menu-arrow div:after {
+		content: "";
+		display: block;
+		position: absolute;
+	}
+	#adminmenu .wp-menu-arrow div:before {
+		top: -6px;
+	}
+	#adminmenu .wp-menu-arrow div:after {
+		top: 6px;
+	}
+	#adminmenu .wp-menu-arrow div:before,
+	#adminmenu .wp-menu-arrow div:after {
+		left: 50%;
+		margin-left: -6px;
+	}
+	#adminmenu .wp-menu-arrow div:before {
+		border-width: 6px;
+	}
+	#adminmenu .wp-menu-arrow div:after {
+		border-width: 6px;
+	}
+	#adminmenu .wp-menu-arrow div:before,
+	#adminmenu .wp-menu-arrow div:after {
+		border-style: solid;
+	}
+	#adminmenu .wp-menu-arrow div:before {
+		border-color: #333 transparent transparent transparent;
+	}
+	#adminmenu .wp-menu-arrow div:after {
+		border-color: #333 transparent transparent transparent;
+	}
+	#adminmenu .wp-menu-arrow div:before,
+	#adminmenu .wp-menu-arrow div:after {
+		content: "";
+		display: block;
+		position: absolute;
+	}
+	#adminmenu .wp-menu-arrow div:before {
+		top: -6px;
+	
